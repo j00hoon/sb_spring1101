@@ -13,9 +13,9 @@
 
 
 
-
+<!-- To change from Spring MVC to Spring Boot, we need to delete some -->
     <dependencies>
-
+<!--
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
@@ -29,6 +29,24 @@
         <dependency>
             <groupId>javax.annotation</groupId>
             <artifactId>javax.annotation-api</artifactId>
+        </dependency>
+-->
+
+
+        <!-- For Spring Boot, we add it -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <!-- From java10, it supports lombok, so we don't need to configure the below manually.
+            <scope>system</scope>
+            <systemPath>${basedir}/../libs/lombok.jar</systemPath>
+            -->
         </dependency>
 
     </dependencies>

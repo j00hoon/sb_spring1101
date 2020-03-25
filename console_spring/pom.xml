@@ -21,5 +21,16 @@
         </dependency>
     </dependencies>
 
+    <!-- For changing from Spring MVC to Spring boot, we need to add it. Since the <core> module itself contains the main class, we need to add <Spring boot main plugin> -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <!-- spring boot maven plugin is used to pack the application into a JAR file with all dependencies. -->
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
 
 </project>

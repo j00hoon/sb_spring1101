@@ -1,8 +1,11 @@
 academy\learningprogramming\GameImp.class
 academy\learningprogramming\NumberGeneratorImp.class
 academy\learningprogramming\MessageGenerator.class
-academy\learningprogramming\Main.class
+academy\learningprogramming\MinNumber.class
+academy\learningprogramming\config\AppConfig.class
+academy\learningprogramming\config\GameConfig.class
+academy\learningprogramming\MaxNumber.class
 academy\learningprogramming\MessageGeneratorImp.class
+academy\learningprogramming\GuessCount.class
 academy\learningprogramming\Game.class
 academy\learningprogramming\NumberGenerator.class
-academy\learningprogramming\AppConfig.class

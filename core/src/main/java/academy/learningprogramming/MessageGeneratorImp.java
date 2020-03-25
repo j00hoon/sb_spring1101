@@ -1,20 +1,28 @@
 package academy.learningprogramming;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import javax.annotation.PostConstruct;
 
+@Slf4j
+@Component
 public class MessageGeneratorImp implements MessageGenerator
 {
-
     // constants
-    private static final Logger log = LoggerFactory.getLogger(MessageGeneratorImp.class);
+    //private static final Logger log = LoggerFactory.getLogger(MessageGeneratorImp.class);
 
     // fields
-    @Autowired
-    private Game game;
-    private static int guessCount = 10;
+    private final Game game;
+
+    // constructor
+    public MessageGeneratorImp(Game game)
+    {
+        this.game = game;
+    }
 
     // init
     public void init()
@@ -47,7 +55,7 @@ public class MessageGeneratorImp implements MessageGenerator
         {
             return ".......................... from MessageGeneratorImp.java .......... INVALID NUMBER RANGE !!! ";
         }// else if
-        else if(game.getRemainingGuesses() == guessCount)
+        else if(game.getRemainingGuesses() == game.getGuessCount())
         {
             return ".......................... from MessageGeneratorImp.java .......... What is your fuckin first guess???";
         }// else if
@@ -59,7 +67,7 @@ public class MessageGeneratorImp implements MessageGenerator
                 direction = "HIGHER";
             }// if
 
-            return ".......................... from MessageGeneratorImp.java .......... " + direction + " YOU HAVE " + game.getRemainingGuesses() + " GUESS LEFT !!!";
+            return ".......................... from MessageGeneratorImp.java .......... " + direction + " YOU HAVE " + game.getRemainingGuesses() + " GUESSES LEFT !!!";
         }// else
 
     }
