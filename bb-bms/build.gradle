@@ -1,0 +1,62 @@
+buildscript{
+	ext{
+		springBootVersion = '2.2.6.RELEASE'
+	}
+	repositories{
+		mavenCentral()
+	}
+	dependencies{
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+
+allprojects{
+	group = 'academy.learnprogramming.bbbms'
+	version = '1.0.0-SNAPSHOT'
+}
+//group = 'academy.learnprogramming'
+//version = '0.0.1-SNAPSHOT'
+
+
+
+
+
+
+subprojects{
+
+	apply plugin: 'java'
+	apply plugin:'eclipse'
+	apply plugin: 'io.spring.dependency-management'
+
+	sourceCompatibility = 11
+
+	configurations {
+		developmentOnly
+		runtimeClasspath {
+			extendsFrom developmentOnly
+		}
+		compileOnly {
+			extendsFrom annotationProcessor
+		}
+	}
+
+	repositories {
+		mavenCentral()
+	}
+
+	dependencies {
+		annotationProcessor("org.projectlombok:lombok")
+		compileOnly('org.projectlombok:lombok')
+	}
+
+	dependencyManagement{
+		imports{
+			mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
+		}
+	}
+
+	test {
+		useJUnitPlatform()
+	}
+}
